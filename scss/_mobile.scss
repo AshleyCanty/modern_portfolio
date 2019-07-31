@@ -1,26 +1,123 @@
-// Widescreens
-@include mediaXl {
-  .projects {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 // Desktops & Laptops
 @include mediaLg {
-  .projects {
-    grid-template-columns: repeat(3, 1fr);
+  #home {
+    padding: 50px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "right"
+      "left";
+
+    .left {
+      padding-top: 30px;
+      text-align: center;
+
+      .buttons {
+        margin: 30px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "button1"
+          "button2";
+        justify-items: center;
+        align-items: center;
+
+        .button {
+          margin: 5px 0 !important;
+          &.button-1 {
+            grid-area: button1;
+          }
+          &.button-2 {
+            grid-area: button1;
+          }
+        }
+      }
+    }
+
+    .right {
+      //   display: none;
+      .portrait {
+        float: none;
+        // background: url("../img/portrait_small.jpg");
+        background-size: contain;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto 30px;
+
+        .circle {
+          content: "";
+          position: absolute;
+          // margin: 50px;
+          top: 15px;
+          left: 30px;
+          width: 300px;
+          height: 300px;
+        }
+      }
+    }
   }
 }
 
 // Tablets & Small Laptops
 @include mediaMd {
-  main {
-    align-items: center;
-    text-align: center;
+  #home {
+    padding: 50px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "right"
+      "left";
 
-    .lg-heading {
-      line-height: 1;
-      margin-bottom: 1rem;
+    .left {
+      padding-top: 20px;
+      text-align: center;
+      .lg-header {
+        font-size: 40px;
+      }
+
+      .md-header {
+        font-size: 30px;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "button1"
+          "button2";
+        justify-items: center;
+        align-items: center;
+
+        .button {
+          margin: 5px 0 !important;
+          &.button-1 {
+            grid-area: button1;
+          }
+          &.button-2 {
+            grid-area: button1;
+          }
+        }
+      }
+    }
+
+    .right {
+      //   display: none;
+      .portrait {
+        float: none;
+        background: url("../img/portrait_small.jpg");
+        background-size: contain;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 30px;
+
+        .circle {
+          content: "";
+          position: absolute;
+          // margin: 50px;
+          top: 15px;
+          left: 30px;
+          width: 200px;
+          height: 200px;
+        }
+      }
     }
   }
 
@@ -52,28 +149,78 @@
     }
   }
 
-  .about-info {
-    grid-template-areas:
-      "bioimage"
-      "bio"
-      "job1"
-      "job2"
-      "job3";
-    grid-template-columns: 1fr;
+  #about {
+    .about-info {
+      padding: 0 20px;
+    }
   }
 
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
+  #projects {
+    .project-box {
+      width: 100%;
+      text-align: center;
+
+      .details {
+        padding-left: 8%;
+        padding-right: 8%;
+      }
+
+      .images {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+        justify-items: center;
+
+        .img {
+          height: 580px;
+          width: 290px;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  .lg-heading-box {
+    .background-heading {
+      margin-left: 20px;
+    }
+
+    .forefront-heading {
+      left: 50px;
+    }
   }
 }
 
 // Smartphones
 @include mediaSm {
-  main#home h1 {
-    margin-top: 10vh;
+  #home {
+    .left {
+      .lg-header {
+        font-size: 40px;
+      }
+
+      .md-header {
+        font-size: 30px;
+      }
+    }
   }
 
-  .projects {
-    grid-template-columns: 1fr;
+  #about {
+    .about-info {
+      padding: 0 20px;
+    }
+  }
+
+  #projects {
+    .project-box {
+      width: 100%;
+      // text-align: center;
+
+      .details {
+        text-align: left;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
   }
 }
